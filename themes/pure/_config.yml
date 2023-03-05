@@ -187,7 +187,7 @@ profile:
   avatar: images/avatar.jpg
   gravatar: # Gravatar email address, if you enable Gravatar, your avatar config will be overriden
   author: 昌久
-  author_title: 我不敲代码，我只是代码的搬运工
+  author_title: 学而不思则罔，思而不学则殆
   author_description: 个人简介。
   location: FoShan, China
   follow: https://luchangjiu.github.io/
