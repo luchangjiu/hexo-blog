@@ -465,3 +465,26 @@ git push github & git push custom_repo
 ```bash
 alias gp='git push & git push github'
 ```
+
+
+## 常见问题
+
+### git pull 提示错误 fatal: refusing to merge unrelated histories
+
+造成 fatal: refusing to merge unrelated histories错误的原因有以下几点：
+
+1. 有一个包含一些提交的新 Git 存储库。然后，您尝试从现有的远程仓库中提取。合并变得不兼容，因为分支和远程拉取的历史不同。当你试图合并两个完全不相关的分支时，Git 看到了这种情况，它不知道该怎么做。
+2. 目录有问题.git。它可能在某些时候被意外删除或损坏。如果您克隆或清理了项目，则可能会发生这种情况。此处发生错误是因为 Git 没有有关本地项目历史的必要信息。
+3. 当您尝试从远程仓库推送或拉取数据时，分支位于不同的HEAD位置，并且由于缺乏共性而无法匹配。
+我出现的问题是，远程的代码没有先clone到本地，所以不兼容。
+
+**解决办法是：**
+
+在git pull和git push命令中添加–allow-unrelated-histories
+让git允许提交不关联的历史代码。
+
+```bash
+git pull origin master --allow-unrelated-histories
+
+git push origin master --allow-unrelated-histories
+```
